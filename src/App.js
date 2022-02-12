@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 
+import tasks from './ejemplos/tasks.json';
+import Tasks from './components/tasks';
+
+
 //componentes
-
-
 /* function Helloworld(props) {
   return(
     <div id="hello">
@@ -14,8 +16,7 @@ import './App.css';
     </div>
   )
 } */
-
-//state***
+/* //state***
 class Helloworld extends React.Component {
 
   state={
@@ -25,7 +26,6 @@ class Helloworld extends React.Component {
   cambioEstado =() => {
     this.setState({show: !this.state.show})
   }
-
   render(){
     //
     if(this.state.show){
@@ -47,8 +47,6 @@ class Helloworld extends React.Component {
     
   }
 }
-
-
 function App() {
   return (
     <div>
@@ -58,6 +56,18 @@ function App() {
      <Helloworld texto="tercero" subtitle="subtitulo 3"/> 
     </div>
   );
+}
+ */
+
+class App extends React.Component{
+  state={
+    tasks : tasks
+  }
+  render(){
+    return <div>
+      <Tasks tasks={this.state.tasks}/>
+    </div>
+  }
 }
 
 export default App;
