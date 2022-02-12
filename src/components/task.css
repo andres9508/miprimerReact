@@ -1,0 +1,13 @@
+.red{
+    background-color: red;
+}
+
+#btnDelete{
+    font-size: 18px;
+    background-color: red;
+    color: aliceblue;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
