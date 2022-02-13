@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import PropTypes from 'prop-types';
 
 import './task.css';
 
@@ -26,6 +27,11 @@ class Task extends Component{
         </div>
     }
 }
+
+Task.propTypes ={
+   tarea : PropTypes.object.isRequired
+}
+
 //los estilos dentro de js se pueden cambiar con programacion
 const btnDelete ={
     fontSize: '18px',
