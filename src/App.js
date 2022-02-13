@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 
 import tasks from './ejemplos/tasks.json';
-import Tasks from './components/tasks';
+//componentes
+import Tasks from './components/Tasks';
+import TaskForm from './components/TaskForm';
 
 
 //componentes
@@ -63,8 +65,21 @@ class App extends React.Component{
   state={
     tasks : tasks
   }
+
+  addTask=(title, description)=>{
+    const nueTarea ={
+      title:title,
+      description: description,
+      id: this.state.tasks.length
+    }
+    this.setState({
+      tasks:[... this.state.tasks , nueTarea]
+    })
+  }
+
   render(){
-    return <div>
+      return <div>
+      <TaskForm agregarTarea={this.addTask}/>
       <Tasks tasks={this.state.tasks}/>
     </div>
   }
