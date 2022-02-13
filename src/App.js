@@ -5,6 +5,7 @@ import tasks from './ejemplos/tasks.json';
 //componentes
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
+import Posts from './components/Posts';
 
 
 //componentes
@@ -107,7 +108,8 @@ class App extends React.Component{
         tasks={this.state.tasks} 
         deleteTask ={this.deleteTarea}
         checkDone ={this.checkDone}
-        />
+      />
+      <Posts/>
     </div>
   }
 }
