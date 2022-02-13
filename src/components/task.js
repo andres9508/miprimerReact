@@ -16,14 +16,15 @@ class Task extends Component{
     }
     render(){
         //llamado de estilo desde funcion this. ....
+        const {tarea} = this.props;
         return <div style={this.styleComplete()}>
-            {this.props.tarea.id}-
-            {this.props.tarea.title}-
-            {this.props.tarea.description}-
-            {this.props.tarea.done}
+            {tarea.id}-
+            {tarea.title}-
+            {tarea.description}-
+            {tarea.done}
 
-            <input type="checkbox"/>
-            <button style={btnDelete}>x</button>
+            <input type="checkbox" onChange={this.props.checkDone.bind(this, tarea.id)}/>
+            <button style={btnDelete} onClick={this.props.deleteTask.bind(this, tarea.id)}>x</button>
         </div>
     }
 }

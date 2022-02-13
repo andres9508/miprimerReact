@@ -70,17 +70,44 @@ class App extends React.Component{
     const nueTarea ={
       title:title,
       description: description,
-      id: this.state.tasks.length
+      id: this.state.tasks.length,
+      done:false
     }
     this.setState({
-      tasks:[... this.state.tasks , nueTarea]
+      tasks:[...this.state.tasks , nueTarea]
+    })
+  }
+
+  deleteTarea =(id)=>{
+    const newTask= this.state.tasks.filter(tasks => tasks.id !==id)
+    //console.log(newTask)
+    this.setState({
+      tasks:newTask 
+    })
+  }
+
+  checkDone=(id)=>{
+    const newTasks = this.state.tasks.map(task=> {
+      if(task.id === id){
+        task.done = !task.done
+      }
+      return task;
+    })
+
+    this.setState({
+      tasks : newTasks
     })
   }
 
   render(){
+      
       return <div>
       <TaskForm agregarTarea={this.addTask}/>
-      <Tasks tasks={this.state.tasks}/>
+      <Tasks 
+        tasks={this.state.tasks} 
+        deleteTask ={this.deleteTarea}
+        checkDone ={this.checkDone}
+        />
     </div>
   }
 }
